@@ -42,6 +42,14 @@
 |---|---|---|---|
 | <img src="solmail-android/screenshots/Screenshot%202026-05-07%20at%2011.38.23%20AM.png" width="200"> | <img src="solmail-android/screenshots/Screenshot%202026-05-07%20at%2011.38.38%20AM.png" width="200"> | <img src="solmail-android/screenshots/Screenshot%202026-05-07%20at%2011.39.46%20AM.png" width="200"> | <img src="solmail-android/screenshots/Screenshot%202026-05-07%20at%2011.40.13%20AM.png" width="200"> |
 
+| Drawer | Compose panel | Inbox list |
+|---|---|---|
+| <img src="solmail-android/screenshots/mobile-drawer.png" width="220"> | <img src="solmail-android/screenshots/mobile-compose.png" width="220"> | <img src="solmail-android/screenshots/mobile-inbox-list.png" width="220"> |
+
+| Wallet connect | Wallet approval | Wallet transaction |
+|---|---|---|
+| <img src="solmail-android/screenshots/mobile-wallet-connect.png" width="220"> | <img src="solmail-android/screenshots/mobile-wallet-approved.png" width="220"> | <img src="solmail-android/screenshots/mobile-wallet-transaction.png" width="220"> |
+
 ### Technical description
 
 SolMail is a native Android Solana dApp built on three pieces of sponsor tech: an Anchor escrow program, Mobile Wallet Adapter with Seed Vault on Seeker, and solana-agent-kit for autonomous refunds. Backend on Cloudflare Workers, on top of the open-source Zero email framework.

@@ -148,16 +148,23 @@ const connectionHandlerHook = async (account: Account) => {
 };
 
 export const createAuth = () => {
-  const twilioClient = twilio();
+  let twilioClient: ReturnType<typeof twilio> | null = null;
+  try {
+    twilioClient = twilio();
+  } catch (error) {
+    console.warn('Twilio not configured; phone OTP auth disabled.', error);
+  }
   const dub = new Dub();
+  const plugins = [
+    dubAnalytics({
+      dubClient: dub,
+    }),
+    jwt(),
+    bearer(),
+  ];
 
-  return betterAuth({
-    plugins: [
-      dubAnalytics({
-        dubClient: dub,
-      }),
-      jwt(),
-      bearer(),
+  if (twilioClient) {
+    plugins.push(
       phoneNumber({
         sendOTP: async ({ code, phoneNumber }) => {
           await twilioClient.messages
@@ -170,7 +177,11 @@ export const createAuth = () => {
             });
         },
       }),
-    ],
+    );
+  }
+
+  return betterAuth({
+    plugins,
     user: {
       deleteUser: {
         enabled: true,

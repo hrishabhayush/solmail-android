@@ -745,11 +745,8 @@ export default function ComposeScreen() {
        */
       const headers: Record<string, string> = {};
 
-      // Quick advisory quality check on replies — server makes the
-      // authoritative escrow decision after send, so we proceed regardless
-      // and only skip the on-chain claim popup when we already know fail.
-      // Fail closed on errors to match the web composer: if scoring is
-      // unreachable, skip the client claim and let the server agent decide.
+      // Quality gate for replies: scoring must pass before we continue
+      // to settlement/send so low-quality replies are not sent out.
       let replyPassed = false;
       if (isReply) {
         try {
@@ -766,9 +763,15 @@ export default function ComposeScreen() {
           console.log(
             `[scoring] ${result.pass ? 'PASS' : 'FAIL'} — score=${result.score}/100 (threshold 15)`,
           );
+          if (!result.pass) {
+            setError('Reply not approved by scoring. Improve the response and try again.');
+            return;
+          }
         } catch (scoreErr) {
-          console.warn('[scoring] quality check failed (non-blocking):', scoreErr);
+          console.warn('[scoring] quality check failed (send blocked):', scoreErr);
           setScoringVisible(false);
+          setError('Scoring check failed. Please try again in a moment.');
+          return;
         }
       } else {
         // Non-reply sends don't have an escrow to claim, so skip the gate.
