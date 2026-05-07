@@ -38,10 +38,6 @@
 
 ### Screenshots
 
-| Inbox | Thread | Compose | Reply check |
-|---|---|---|---|
-| <img src="solmail-android/screenshots/Screenshot%202026-05-07%20at%2011.38.23%20AM.png" width="200"> | <img src="solmail-android/screenshots/Screenshot%202026-05-07%20at%2011.38.38%20AM.png" width="200"> | <img src="solmail-android/screenshots/Screenshot%202026-05-07%20at%2011.39.46%20AM.png" width="200"> | <img src="solmail-android/screenshots/Screenshot%202026-05-07%20at%2011.40.13%20AM.png" width="200"> |
-
 | Drawer | Compose panel | Inbox list |
 |---|---|---|
 | <img src="solmail-android/screenshots/mobile-drawer.png" width="220"> | <img src="solmail-android/screenshots/mobile-compose.png" width="220"> | <img src="solmail-android/screenshots/mobile-inbox-list.png" width="220"> |
