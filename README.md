@@ -1,4 +1,6 @@
-# SolMail: Incentivized inbox for richer replies
+# SolMail: Micropayments for cold emails on Solana
+
+Use the oldest release v1 apk to try out Solmail on Solana Seeker phone 
 
 <p align="center">
   <picture>
